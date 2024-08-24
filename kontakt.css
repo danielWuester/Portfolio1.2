@@ -1,0 +1,127 @@
+.contact__container {
+    padding-top: 1rem;
+}
+
+.contact__form,
+.contact__group {
+    display: grid;
+    row-gap: 1rem;
+}
+
+.contact__form {
+    position: relative;
+}
+
+.contact__input {
+    padding: 1rem 1,25rem;
+    border-radius: 5rem;
+    background-color: var(--secondary-color);
+}
+
+.contact__input::placeholder {
+    color: var(--primary-color);
+}
+
+.contact__form textarea {
+    height: 11rem;
+    resize: none;
+    margin-bottom: 2rem;
+    
+}
+
+.contact__button {
+    justify-self: center;
+    cursor: pointer;
+}
+
+.contact__message {
+    position: absolute;
+    left: 0;
+    bottom: 4.5rem;
+    font-size: 12px;
+}
+
+#contact {
+    padding: 70px 0;
+    background-color: var(--secondary-color);
+}
+
+#contact h2 {
+    font-size: 50px;
+    text-align: center;
+}
+
+#contact h3 {
+    font-size: 30px;
+    text-align: center;
+}
+
+li {
+    font-size: 24px;
+}
+
+label {
+    font-size: 24px;
+}
+
+.flex_container_kontakt {
+    margin-top: 50px;
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card_kontakt {
+    width: 450px;
+    max-width: calc(90% - 40px);
+    background-color: var(--primary-color);
+    border-radius: 100px;
+    padding: 60px 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    gap: 20px;
+}
+
+.card_kontakt input[type="text"],
+.card_kontakt input[type="email"],
+.card_kontakt textarea {
+    width: 100%;
+    padding: 10px;
+    border: solid 1px;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.card_kontakt textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.card_kontakt button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--secondary-color);
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.card_kontakt button:hover {
+    background-color: #0056b3;
+}
+
+.card_kontakt * {
+    text-align: left;
+}
+
+@media(max-width: 500px) {
+    #ausbildung_section h2 {
+        font-size: 12vw;
+    }
+}

@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --main-brand-color: #297ae3;
+    --primary-color: #15171c;
+    --secondary-color: #232933;
+    --light-secondary-color: #2e37744;
+    --text-color: white;
+    --secondary-text-color: #b3b4b6;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: var(--primary-color);
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    color: var(--text-color);
+    padding: 0;
+}
+
+h1{
+    font-size: 100px;
+    line-height: 115%;
+}
+
+h3{
+    font-size: 36px;
+}
+
+.subheading{
+    margin-top: 25px;
+    color: var(--secondary-text-color);
+}
+
+p {
+    font-size: 24px;
+}
+
+footer {
+    margin-left: 30px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.hftm {
+    height: 20px;
+    width: auto;
+}
+
+#scrollTopBtn {
+    display: none; /* Anfangs ausgeblendet */
+    position: fixed; /* Fixiert den Button relativ zum Browserfenster */
+    bottom: 20px; /* Abstand zum unteren Rand des Browserfensters */
+    right: 30px; /* Abstand zum rechten Rand des Browserfensters */
+    z-index: 99; /* Stellt sicher, dass der Button über anderem Inhalt liegt */
+    font-size: 18px;
+    background-color: var(--main-brand-color); /* Hintergrundfarbe */
+    color: white; /* Schriftfarbe */
+    border: none; /* Keine Umrandung */
+    outline: none; /* Keine Umrandung bei Fokussierung */
+    cursor: pointer; /* Mauszeiger wird zu einer Hand */
+    padding: 15px; /* Innenabstand des Buttons */
+    border-radius: 10px; /* Abgerundete Ecken */
+}
+
+
+@media(max-width: 800px) {
+    h1 {
+        font-size: 12vw;
+        text-align: center;
+    }
+    .subheading{
+        text-align: center;
+    }
+}
