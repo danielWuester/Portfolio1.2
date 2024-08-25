@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meine Webseite</title>
     <link rel="stylesheet" href="general_settings.css">
     <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="about_me.css">
@@ -16,9 +15,23 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <script src="kompetenzen.js" defer></script>
     <script src="general_script.js" defer></script>
-    <script src="kontakt.js"></script>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
-
+    <title>Daniel Wüster</title>
+    <meta name="description" content="Mein Name ist Daniel Wüster und lebe mit meiner Familie in
+    Niederbipp. Als Business Analyst im Bereich Service Management habe ich mein Interesse für die Informatik
+    entdeckt. Heute studiere ich Informatik an der hftm in Grenchen.">
+    <meta name="author" content="Daniel Wüster">
+    <meta property="og:title" content="Daniel Wüster.ch">
+    <meta property="og:description" content="Mein Name ist Daniel Wüster und lebe mit meiner Familie in
+    Niederbipp. Als Business Analyst im Bereich Service Management habe ich mein Interesse für die Informatik
+    entdeckt. Heute studiere ich Informatik an der hftm in Grenchen.">
+    <meta property="og.image" content="images/daniel2.jpg">
+    <meta property="og:image:alt" content="Portrait von Daniel Wüster">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:url" content="https://danielwuester.ch">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://danielwuester.ch">
+    <meta name="robots" content="index">
 </head>
 
 <body>
@@ -61,17 +74,17 @@
         <div class="about_me_container">
             <h2>über mich</h2>
             <div>
-                <h4>Eigenschaften</h4>
-                <p>Flexibel und spontan / Hohe Eigenmotivation / Organisationstalent / Strukturierte Arbeitsweise /
-                    Einfühlsam</p>
+                <h3>Eigenschaften</h3>
+                    <p>Flexibel und spontan / Hohe Eigenmotivation / Organisationstalent / Strukturierte Arbeitsweise /
+                        Einfühlsam</p>
             </div>
             <div>
-                <h4>Sprachen</h4>
+                <h3>Sprachen</h3>
                 <p>Deutsch: Muttersprache<br>Englisch: schriftlich und mündlich sehr gut<br>Französisch: Grundkenntnisse
                 </p>
             </div>
             <div>
-                <h4>Freizeit</h4>
+                <h3>Freizeit</h3>
                 <p>Familie / Amateurfunk / Outdoor-Aktivitäten / Politik</p>
             </div>
         </div>
@@ -282,7 +295,6 @@
                         mir</a><br><br>
                     Geburtsdatum: 28.06.1976<br><br>
                     Zivilstand: verheiratet, vier Kinder
-                    </ul>
             </div>
             <div class="card_kontakt">
                 <h3>Referenzen</h3>
@@ -294,7 +306,7 @@
 
             <div class="card_kontakt">
                 <h3>Kontaktformular</h3>
-                <form id="contact">
+                <form id="contact_form">
                     <input type="hidden" name="access_key" value="a4538d37-8849-4b03-8034-efcb725f549c">
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="name" placeholder="Ihr Name" required>
