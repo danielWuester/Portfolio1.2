@@ -8,12 +8,12 @@ header {
 }
 
 .header_text {
-    width: 850px;
+    width: 800px;
 }
 
 .circle {
-    height: 600px;
-    width: 600px;
+    height: 500px;
+    width: 500px;
 
     max-width: 80vw;
     max-height: 80vw;

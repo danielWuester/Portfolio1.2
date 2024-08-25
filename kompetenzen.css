@@ -53,7 +53,7 @@ select {
 }
 
 .card_skill {
-    width: 500px;
+    width: 450px;
     max-width: calc(90% - 40px);
     margin: 60px auto;
     color: #fff;
@@ -84,7 +84,7 @@ select {
     width: var(--target-width);
     height: 20px;
     float: left;
-    background: linear-gradient(135deg, var(--main-brand-color)0%, rgb(224, 17, 145)100%);
+    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--main-brand-color)100%);
 
 }
 
@@ -125,7 +125,7 @@ select {
 }
 
 .betriebswirtschaft {
-    --target-width: 95%;
+    --target-width: 100%;
 }
 
 .organisation {
@@ -133,6 +133,10 @@ select {
 }
 
 .prozesse {
+    --target-width: 100%;
+}
+
+.mitarbeiterführung {
     --target-width: 100%;
 }
 

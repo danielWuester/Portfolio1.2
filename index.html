@@ -17,7 +17,7 @@
     <script src="kompetenzen.js" defer></script>
     <script src="general_script.js" defer></script>
     <script src="kontakt.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
 
 </head>
 
@@ -38,9 +38,16 @@
                 </ul>
             </nav>
             <h1>Daniel Wüster, <br><span style="color: var(--main-brand-color)">Software-entwickler</span></h1>
-            <p class="subheading">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam dolorem, eius
-                nisi quidem, quasi totam voluptas assumenda id exercitationem perspiciatis blanditiis esse harum fuga
-                voluptatum libero ut error quam voluptatibus?</p>
+            <p class="subheading">
+                Ich bin <span id="age"></span> Jahre alt und lebe mit meiner Familie in Niederbipp, einem idyllischen
+                Ort am Fuße des Juras.
+                Als Business Analyst im Bereich <i>Service Management</i> habe ich mein Interesse für die Informatik
+                entdeckt,
+                was mich dazu motiviert hat, meine Kenntnisse weiter auszubauen. Heute studiere ich Informatik an der
+                <span style="color: var(--main-brand-color); font-weight: bold">hftm</span> in Grenchen und freue mich
+                darauf, meine Leidenschaft für Technologie und Problemlösungen weiter zu
+                vertiefen.
+            </p>
         </div>
         <div class="circle">
             <img src="images/daniel2.jpg" alt="">
@@ -254,8 +261,13 @@
                         <p>Prozesse</p>
                         <span class="bar"><span class="prozesse"></span></span>
                     </li>
+                    <li>
+                        <p>Mitarbeiterführung</p>
+                        <span class="bar"><span class="mitarbeiterführung"></span></span>
+                    </li>
                 </ul>
             </div>
+        </div>
     </section>
 
     <section id="contact">
@@ -263,17 +275,14 @@
         <div class="flex_container_kontakt">
             <div class="card_kontakt">
                 <h3>Persönliche Daten</h3>
-                <p>
-                <ul>
-                    <li>Adresse: Galgackerweg 4</li>
-                    <li>Ort: 4704 Niederbipp</li>
-                    <li>Telefon: 062 534 69 42</li>
-                    <li>E-Mail: <a href="mailto:dw76ch@gmail.com" style="color: var(--main-brand-color);">schreiben Sie
-                            mir</a></li>
-                    <li>Geburtsdatum: 28.06.1976</li>
-                    <li>Zivilstand: verheiratet, vier Kinder</li>
-                </ul>
-                </p>
+                <p>Adresse: Galgackerweg 4<br><br>
+                    Ort: 4704 Niederbipp<br><br>
+                    Telefon: 062 534 69 42<br><br>
+                    E-Mail: <a href="mailto:dw76ch@gmail.com" style="color: var(--main-brand-color);">schreiben Sie
+                        mir</a><br><br>
+                    Geburtsdatum: 28.06.1976<br><br>
+                    Zivilstand: verheiratet, vier Kinder
+                    </ul>
             </div>
             <div class="card_kontakt">
                 <h3>Referenzen</h3>
@@ -283,50 +292,64 @@
                     +41 79 865 71 86</p>
             </div>
 
-            <div class="card_kontakt" id="contact">
-                <h3>Kontaktformular</h3>
-                <div class="contact__container container grid">
-                    <form action="" class="contact__form" id="contact-form">
-                        <div class="contact__group">
-                            <input type="text" name="user_name" required placeholder="Ihr Name" class="contact__input">
-                            <input type="email" name="user_email" required placeholder="Ihre Mailadresse"
-                                class="contact__input">
-                            <textarea name="user_message" required placeholder="Ihre Nachricht"
-                                class="contact__input"></textarea>
-                            <p class="contact__message" id="contact-message">Message</p>
-                            <button type="submit" class="button contact__button">
-                                Nachricht senden
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
             <div class="card_kontakt">
                 <h3>Kontaktformular</h3>
-                <form action="send_mail.php" method="post">
+                <form id="contact">
+                    <input type="hidden" name="access_key" value="a4538d37-8849-4b03-8034-efcb725f549c">
                     <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
+                    <input type="text" id="name" name="name" placeholder="Ihr Name" required>
                     <br>
                     <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="email" name="email" placeholder="Ihre Mailadresse" required>
                     <br>
                     <label for="message">Nachricht:</label>
-                    <textarea id="message" name="message" required></textarea>
+                    <textarea id="message" name="message" placeholder="Ihre Nachricht" required></textarea>
                     <br>
                     <button type="submit">Senden</button>
                 </form>
+
+                <div id="successMessage" style="display:none; color: green;">
+                    Vielen Dank für Ihre Nachricht! Sie wurde erfolgreich übermittelt.
+                </div>
+
+                <div id="errorMessage" style="display:none; color: red;">
+                    Es gab ein Problem beim Senden Ihrer Nachricht. Bitte versuchen Sie es später erneut.
+                </div>
+
             </div>
 
-            </form>
+            <script>
+                document.getElementById('contact').addEventListener('submit', async function (event) {
+                    event.preventDefault(); // Verhindert das Standard-Submit-Verhalten
+
+                    const form = event.target;
+                    const formData = new FormData(form);
+
+                    try {
+                        const response = await fetch('https://api.web3forms.com/submit', {
+                            method: 'POST',
+                            body: formData
+                        });
+
+                        if (response.ok) {
+                            document.getElementById('successMessage').style.display = 'block';
+                            form.reset(); // Löscht die Inhalte des Formulars
+                        } else {
+                            document.getElementById('errorMessage').style.display = 'block';
+                        }
+                    } catch (error) {
+                        document.getElementById('errorMessage').style.display = 'block';
+                    }
+                });
+            </script>
 
         </div>
 
     </section>
 
     <footer>
-        <p></p><img class="hftm" src="images/logohftm-1.png" alt="">
-        hftm - &copy 2024 - Daniel Wüster - all rights reserved</p>
+        <p><img class="hftm" src="images/logohftm-1.png" alt="">
+            hftm - ©️ 2024 - Daniel Wüster - all rights reserved</p>
     </footer>
 
 </body>
