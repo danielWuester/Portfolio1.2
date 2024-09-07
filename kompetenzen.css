@@ -153,6 +153,6 @@ select {
 /* Responsive Design */
 @media (max-width: 768px) {
     .flex_container_kompetenzen {
-        flex-direction: column;
+        flex-direction: center;
     }
 }
